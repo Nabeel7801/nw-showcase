@@ -5,25 +5,36 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Nabeel Ahmed — senior software engineer in California. Full-stack depth, product instinct, select US startup engagements." />
-    <title>Nabeel Ahmed — Software Engineer</title>
+    <title>Nabeel Workspace</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,400;1,600&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
 
+    <!-- Background canvas for Three.js particle network -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- Custom cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <div class="cursor__dot"></div>
+      <div class="cursor__ring"></div>
+    </div>
+
     <!-- NAV -->
     <header class="nav" id="nav">
-      <a class="nav__brand" href="#">
-        <span class="nav__initials">NA</span>
-        <span class="nav__sep"></span>
-        <span class="nav__name">Nabeel Ahmed</span>
+      <a class="nav__logo" href="#">
+        <span class="nav__logo-mark">NW</span>
+        <span class="nav__logo-sep"></span>
+        <span class="nav__logo-text">Workspace</span>
       </a>
-      <nav aria-label="Primary">
-        <a href="#expertise" class="nav__link">Expertise</a>
-        <a href="#work" class="nav__link">Work</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#skills" class="nav__link">Skills</a>
         <a href="#connect" class="nav__link">Connect</a>
       </nav>
+      <a href="#connect" class="nav__cta">Work together</a>
     </header>
 
     <main>
@@ -31,167 +42,287 @@
       <!-- HERO -->
       <section class="hero" id="hero">
         <div class="hero__inner">
-          <p class="hero__role mono clip-reveal" style="--delay:0s">Senior Software Engineer · California, US</p>
-          <h1 class="hero__name">
-            <span class="clip-reveal" style="--delay:0.1s">Nabeel</span>
-            <span class="clip-reveal" style="--delay:0.2s">Ahmed</span>
-          </h1>
-          <div class="hero__rule-wrap clip-reveal" style="--delay:0.35s">
-            <div class="hero__rule"></div>
-          </div>
-          <p class="hero__statement clip-reveal" style="--delay:0.45s">
-            I build product-grade software for US startups —<br>
-            end-to-end, from schema to interface, with the<br>
-            engineering depth and product clarity teams rely on.
+          <p class="hero__eyebrow mono" data-reveal>
+            <span class="hero__eyebrow-dot"></span>
+            Senior Software Engineer · California, US
           </p>
-          <div class="hero__actions clip-reveal" style="--delay:0.6s">
-            <a href="#work" class="btn btn--primary">View work</a>
-            <a href="#connect" class="btn btn--ghost">Get in touch</a>
+          <h1 class="hero__title" data-reveal data-reveal-delay="1">
+            <span class="hero__title-line">NABEEL</span>
+            <span class="hero__title-line hero__title-line--accent">WORKSPACE</span>
+          </h1>
+          <p class="hero__sub italic" data-reveal data-reveal-delay="2">
+            Building product-grade systems that<br>founders and users actually trust.
+          </p>
+          <div class="hero__actions" data-reveal data-reveal-delay="3">
+            <a href="#projects" class="btn btn--primary">Featured work</a>
+            <a href="#connect" class="btn btn--ghost">Start a conversation</a>
+          </div>
+          <div class="hero__stats" data-reveal data-reveal-delay="4">
+            <div class="hero__stat">
+              <span class="hero__stat-num">MERN</span>
+              <span class="hero__stat-label mono">Primary Stack</span>
+            </div>
+            <div class="hero__stat-sep"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-num">US</span>
+              <span class="hero__stat-label mono">Startups Only</span>
+            </div>
+            <div class="hero__stat-sep"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-num">01</span>
+              <span class="hero__stat-label mono">Live Product</span>
+            </div>
           </div>
         </div>
-        <aside class="hero__aside clip-reveal" style="--delay:0.7s" aria-label="Quick facts">
-          <dl>
-            <div class="hero__fact">
-              <dt class="mono">Stack</dt>
-              <dd>MERN · TypeScript</dd>
-            </div>
-            <div class="hero__fact">
-              <dt class="mono">Focus</dt>
-              <dd>US Startups · Senior delivery</dd>
-            </div>
-            <div class="hero__fact">
-              <dt class="mono">GitHub</dt>
-              <dd><a href="https://github.com/Nabeel7801" target="_blank" rel="noopener">@Nabeel7801</a></dd>
-            </div>
-          </dl>
-        </aside>
+        <div class="hero__scroll-hint mono" aria-hidden="true">scroll</div>
       </section>
 
-      <!-- EXPERTISE -->
-      <section class="section expertise" id="expertise">
-        <div class="section__label mono reveal">01 — Expertise</div>
-        <div class="expertise__grid">
-
-          <div class="exp-block reveal" style="--delay:0.05s">
-            <div class="exp-block__num mono">Backend</div>
-            <h3 class="exp-block__title">Systems & APIs</h3>
-            <p class="exp-block__desc">Data modeling, service architecture, and RESTful APIs built to scale and stay maintainable under real-world load.</p>
-            <ul class="exp-block__tags">
-              <li>Node.js</li><li>Express</li><li>MongoDB</li><li>REST APIs</li>
-            </ul>
+      <!-- ABOUT -->
+      <section class="about" id="about">
+        <div class="about__inner">
+          <div class="about__header">
+            <p class="section-eyebrow mono" data-reveal>001 / About</p>
+            <h2 class="about__headline" data-reveal data-reveal-delay="1">
+              Systems thinker.<br><em>Interface crafter.</em>
+            </h2>
           </div>
-
-          <div class="exp-block reveal" style="--delay:0.1s">
-            <div class="exp-block__num mono">Frontend</div>
-            <h3 class="exp-block__title">Interface & Motion</h3>
-            <p class="exp-block__desc">Responsive component systems, clean animations, and UI that earns trust on first contact. Quality over quantity.</p>
-            <ul class="exp-block__tags">
-              <li>React</li><li>TypeScript</li><li>CSS Animation</li><li>UI Engineering</li>
-            </ul>
+          <div class="about__body">
+            <div class="about__pull" data-reveal data-reveal-delay="2">
+              <blockquote class="about__quote italic">
+                "I build the kind of software people lean on — not demos, not MVPs that collapse under real load. Fully committed, carefully delivered."
+              </blockquote>
+            </div>
+            <div class="about__facts" data-reveal data-reveal-delay="3">
+              <dl class="fact-list">
+                <div class="fact-list__row">
+                  <dt class="mono">Role</dt>
+                  <dd>Senior Software Engineer</dd>
+                </div>
+                <div class="fact-list__row">
+                  <dt class="mono">Based</dt>
+                  <dd>California, United States</dd>
+                </div>
+                <div class="fact-list__row">
+                  <dt class="mono">Stack</dt>
+                  <dd>MERN · TypeScript · REST APIs</dd>
+                </div>
+                <div class="fact-list__row">
+                  <dt class="mono">GitHub</dt>
+                  <dd><a href="https://github.com/Nabeel7801" target="_blank" rel="noopener">@Nabeel7801</a></dd>
+                </div>
+                <div class="fact-list__row">
+                  <dt class="mono">X / Twitter</dt>
+                  <dd><a href="https://twitter.com/NabeelABC0026" target="_blank" rel="noopener">@NabeelABC0026</a></dd>
+                </div>
+              </dl>
+            </div>
           </div>
-
-          <div class="exp-block reveal" style="--delay:0.15s">
-            <div class="exp-block__num mono">Product</div>
-            <h3 class="exp-block__title">Delivery & Clarity</h3>
-            <p class="exp-block__desc">System design, documentation, and senior-level communication that keeps teams aligned and projects on track.</p>
-            <ul class="exp-block__tags">
-              <li>System Design</li><li>DSA</li><li>Docs & MDX</li><li>Arch Review</li>
-            </ul>
-          </div>
-
         </div>
       </section>
 
-      <!-- WORK -->
-      <section class="section work" id="work">
-        <div class="section__label mono reveal">02 — Selected Work</div>
+      <!-- PROJECTS -->
+      <section class="projects" id="projects">
+        <div class="projects__inner">
+          <div class="projects__header">
+            <p class="section-eyebrow mono" data-reveal>002 / Projects</p>
+            <h2 class="projects__headline" data-reveal data-reveal-delay="1">Featured work</h2>
+          </div>
 
-        <div class="work__list">
+          <!-- Tabula — featured card -->
+          <div class="project-card project-card--featured" data-tilt data-reveal data-reveal-delay="2">
+            <div class="project-card__inner">
+              <div class="project-card__header">
+                <div class="project-card__badge mono">Live Product</div>
+                <div class="project-card__status">
+                  <span class="live-dot"></span>
+                  <span class="mono">Active</span>
+                </div>
+              </div>
+              <div class="project-card__content">
+                <div class="project-card__copy">
+                  <h3 class="project-card__name">Tabula</h3>
+                  <p class="project-card__tagline italic">POS & inventory management for local businesses</p>
+                  <p class="project-card__desc">
+                    Local-first retail operating system — syncing register, stock, shifts and invoices across a floor. Cloud-ready when operators need scale. Built end-to-end: schema through interface.
+                  </p>
+                  <ul class="project-card__tags">
+                    <li class="mono">MongoDB</li>
+                    <li class="mono">Express</li>
+                    <li class="mono">React</li>
+                    <li class="mono">Node.js</li>
+                    <li class="mono">Local-first</li>
+                  </ul>
+                  <div class="project-card__actions">
+                    <a href="https://tabula.nabeelworkspace.com" target="_blank" rel="noopener" class="btn btn--accent">Explore Tabula</a>
+                    <a href="https://tabula.nabeelworkspace.com" target="_blank" rel="noopener" class="btn btn--ghost-sm">Live site ↗</a>
+                  </div>
+                </div>
+                <div class="project-card__visual" aria-hidden="true">
+                  <div class="tabula-mockup">
+                    <div class="tabula-mockup__bar">
+                      <span class="tabula-mockup__dot"></span>
+                      <span class="tabula-mockup__dot"></span>
+                      <span class="tabula-mockup__dot"></span>
+                      <span class="mono" style="font-size:0.65rem;color:var(--muted);margin-left:auto;">TABULA · Register 02</span>
+                    </div>
+                    <div class="tabula-mockup__body">
+                      <div class="tabula-mockup__sidebar">
+                        <div class="tabula-mockup__nav-item tabula-mockup__nav-item--active mono">Register</div>
+                        <div class="tabula-mockup__nav-item mono">Inventory</div>
+                        <div class="tabula-mockup__nav-item mono">Invoices</div>
+                        <div class="tabula-mockup__nav-item mono">Shifts</div>
+                      </div>
+                      <div class="tabula-mockup__main">
+                        <div class="tabula-mockup__receipt">
+                          <div class="tabula-mockup__r-row">
+                            <span class="mono">Oolong tea ×4</span>
+                            <span class="mono accent">$47.80</span>
+                          </div>
+                          <div class="tabula-mockup__r-row">
+                            <span class="mono">Pastry box ×2</span>
+                            <span class="mono accent">$26.00</span>
+                          </div>
+                          <div class="tabula-mockup__r-row tabula-mockup__r-row--total">
+                            <span class="mono">TOTAL</span>
+                            <span class="mono">$73.80</span>
+                          </div>
+                        </div>
+                        <div class="tabula-mockup__stock">
+                          <div class="tabula-mockup__stock-label mono">Stock pulse</div>
+                          <div class="tabula-mockup__meter-row">
+                            <span class="mono">Beans</span>
+                            <div class="tabula-mockup__meter"><div class="tabula-mockup__meter-fill" style="--w:82%"></div></div>
+                          </div>
+                          <div class="tabula-mockup__meter-row">
+                            <span class="mono">Syrups</span>
+                            <div class="tabula-mockup__meter"><div class="tabula-mockup__meter-fill" style="--w:54%"></div></div>
+                          </div>
+                          <div class="tabula-mockup__meter-row">
+                            <span class="mono">Dairy</span>
+                            <div class="tabula-mockup__meter"><div class="tabula-mockup__meter-fill tabula-mockup__meter-fill--low" style="--w:28%"></div></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <!-- Tabula -->
-          <article class="work-item reveal" data-index="01">
-            <div class="work-item__meta">
-              <span class="work-item__num mono">01</span>
-              <span class="work-item__status mono live">Live</span>
-            </div>
-            <div class="work-item__content">
-              <h3 class="work-item__title">
-                <a href="https://tabula.nabeelworkspace.com" target="_blank" rel="noopener">Tabula</a>
-              </h3>
-              <p class="work-item__type mono">POS · Inventory Management · SaaS</p>
-              <p class="work-item__desc">
-                Local-first retail operating system syncing register, stock, shifts and invoices across a floor. Built end-to-end — data schema through the interface. Cloud-ready when operators need scale.
-              </p>
-              <ul class="work-item__tags">
-                <li>MongoDB</li><li>Express</li><li>React</li><li>Node.js</li><li>Local-first</li>
-              </ul>
-              <a href="https://tabula.nabeelworkspace.com" target="_blank" rel="noopener" class="work-item__link mono">
-                Visit Tabula <span>↗</span>
-              </a>
-            </div>
-          </article>
+          <!-- Secondary projects grid -->
+          <div class="projects__grid">
 
-          <!-- Outreach OS -->
-          <article class="work-item reveal" data-index="02">
-            <div class="work-item__meta">
-              <span class="work-item__num mono">02</span>
-              <span class="work-item__status mono building">Building</span>
+            <!-- Outreach OS -->
+            <div class="project-card project-card--sm" data-tilt data-reveal data-reveal-delay="3">
+              <div class="project-card__inner">
+                <div class="project-card__badge mono">In Development</div>
+                <h3 class="project-card__name project-card__name--sm">Outreach OS</h3>
+                <p class="project-card__tagline italic">Sales sequence automation for B2B teams</p>
+                <p class="project-card__desc">
+                  Multi-step outreach engine — building cadences, tracking engagement, and surfacing warm leads from cold pipelines.
+                </p>
+                <ul class="project-card__tags">
+                  <li class="mono">TypeScript</li>
+                  <li class="mono">Email API</li>
+                  <li class="mono">Automation</li>
+                </ul>
+              </div>
             </div>
-            <div class="work-item__content">
-              <h3 class="work-item__title">Outreach OS</h3>
-              <p class="work-item__type mono">Sales Automation · B2B</p>
-              <p class="work-item__desc">
-                Multi-step outreach engine — building cadences, tracking engagement, and surfacing warm leads from cold pipelines for B2B sales teams.
-              </p>
-              <ul class="work-item__tags">
-                <li>TypeScript</li><li>Email API</li><li>Automation</li>
-              </ul>
-            </div>
-          </article>
 
-          <!-- LeadMap -->
-          <article class="work-item reveal" data-index="03">
-            <div class="work-item__meta">
-              <span class="work-item__num mono">03</span>
-              <span class="work-item__status mono concept">Concept</span>
+            <!-- LeadMap -->
+            <div class="project-card project-card--sm" data-tilt data-reveal data-reveal-delay="4">
+              <div class="project-card__inner">
+                <div class="project-card__badge mono">Concept</div>
+                <h3 class="project-card__name project-card__name--sm">LeadMap</h3>
+                <p class="project-card__tagline italic">Territory intelligence for field sales</p>
+                <p class="project-card__desc">
+                  Visual territory management — assign regions, track rep coverage, surface density and opportunity gaps on a live map view.
+                </p>
+                <ul class="project-card__tags">
+                  <li class="mono">React</li>
+                  <li class="mono">Mapping</li>
+                  <li class="mono">Sales Ops</li>
+                </ul>
+              </div>
             </div>
-            <div class="work-item__content">
-              <h3 class="work-item__title">LeadMap</h3>
-              <p class="work-item__type mono">Territory Intelligence · Sales Ops</p>
-              <p class="work-item__desc">
-                Visual territory management — assign regions, track rep coverage, and surface density and opportunity gaps on a live map view.
-              </p>
-              <ul class="work-item__tags">
-                <li>React</li><li>Mapping</li><li>Sales Ops</li>
-              </ul>
-            </div>
-          </article>
 
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="skills" id="skills">
+        <div class="skills__inner">
+          <p class="section-eyebrow mono" data-reveal>003 / Skills &amp; Stack</p>
+          <h2 class="skills__headline" data-reveal data-reveal-delay="1">
+            Depth across<br><em>the full stack.</em>
+          </h2>
+
+          <div class="skill-cloud" data-reveal data-reveal-delay="2" aria-label="Technologies">
+            <span class="skill-tag" data-weight="5">MongoDB</span>
+            <span class="skill-tag" data-weight="5">Express</span>
+            <span class="skill-tag" data-weight="5">React</span>
+            <span class="skill-tag" data-weight="5">Node.js</span>
+            <span class="skill-tag" data-weight="4">TypeScript</span>
+            <span class="skill-tag" data-weight="4">REST APIs</span>
+            <span class="skill-tag" data-weight="4">UI Engineering</span>
+            <span class="skill-tag" data-weight="3">System Design</span>
+            <span class="skill-tag" data-weight="3">DSA &amp; Algorithms</span>
+            <span class="skill-tag" data-weight="3">MDX &amp; Docs</span>
+            <span class="skill-tag" data-weight="3">CSS Animation</span>
+            <span class="skill-tag" data-weight="2">PostgreSQL</span>
+            <span class="skill-tag" data-weight="2">Redis</span>
+            <span class="skill-tag" data-weight="2">AWS S3</span>
+            <span class="skill-tag" data-weight="2">Vite</span>
+          </div>
+
+          <div class="capability-cards" data-reveal data-reveal-delay="3">
+            <div class="cap-card">
+              <div class="cap-card__num mono">01</div>
+              <h3 class="cap-card__title">Backend Systems</h3>
+              <p class="cap-card__desc">APIs, data modeling, and reliable services structured for scale. Schema design through deployment, end to end.</p>
+            </div>
+            <div class="cap-card">
+              <div class="cap-card__num mono">02</div>
+              <h3 class="cap-card__title">Frontend Craft</h3>
+              <p class="cap-card__desc">Responsive interfaces, component architecture, and motion that feels intentional. UI that earns trust on first use.</p>
+            </div>
+            <div class="cap-card">
+              <div class="cap-card__num mono">03</div>
+              <h3 class="cap-card__title">Product Delivery</h3>
+              <p class="cap-card__desc">Documentation, templates, and tooling that keep teams moving. Senior communication that reduces friction in every direction.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- CONNECT -->
-      <section class="section connect" id="connect">
-        <div class="section__label mono reveal">03 — Connect</div>
+      <section class="connect" id="connect">
         <div class="connect__inner">
-          <h2 class="connect__heading reveal">
-            Let's work<br><em>together.</em>
+          <p class="section-eyebrow mono" data-reveal>004 / Connect</p>
+          <h2 class="connect__headline" data-reveal data-reveal-delay="1">
+            Let's build<br>something<br><em>sharp.</em>
           </h2>
-          <p class="connect__lead reveal">
-            Available for senior engineering engagements with US startups. If you need full-stack depth, calm delivery, and someone who thinks about product — reach out.
+          <p class="connect__lead" data-reveal data-reveal-delay="2">
+            If you're at a US startup and need a senior engineer for a high-stakes product push — architecture, full-stack execution, and calm communication — reach out and we'll see if it's a fit.
           </p>
-          <div class="connect__links reveal">
+          <div class="connect__links" data-reveal data-reveal-delay="3">
             <a href="https://twitter.com/NabeelABC0026" target="_blank" rel="noopener" class="btn btn--primary">Message on X</a>
             <a href="https://github.com/Nabeel7801" target="_blank" rel="noopener" class="btn btn--ghost">GitHub ↗</a>
+            <a href="#projects" class="btn btn--ghost">View work</a>
           </div>
         </div>
       </section>
 
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-      <span class="mono">© <span id="year"></span> Nabeel Ahmed</span>
-      <a href="/v1" class="mono footer__v1">View v1 ↗</a>
+      <div class="footer__inner">
+        <span class="mono footer__copy">© <span id="year"></span> Nabeel Workspace · Nabeel Ahmed · California, US</span>
+        <span class="mono footer__tag">Built with intention.</span>
+      </div>
     </footer>
 
     <script type="module" src="/src/main.js"></script>
